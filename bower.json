@@ -4,7 +4,7 @@
     "email": "yaru22@gmail.com"
   },
   "name": "angular-json-human",
-  "description": "Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js",
+  "description": "Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.",
   "version": "0.1.0",
   "license": "MIT",
   "homepage": "https://github.com/yaru22/angular-json-human",

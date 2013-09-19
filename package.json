@@ -3,21 +3,21 @@
     "name": "Brian Park",
     "email": "yaru22@gmail.com"
   },
-  "name": "ng-component-seed",
-  "description": "Angular component (directive, filter, service, etc.) seed that is used to kickstart the implementation.",
+  "name": "angular-json-human",
+  "description": "Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.",
   "version": "0.1.0",
   "license": "MIT",
-  "homepage": "https://github.com/yaru22/ng-component-seed",
+  "homepage": "https://github.com/yaru22/angular-json-human",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yaru22/ng-component-seed.git"
+    "url": "git://github.com/yaru22/angular-json-human.git"
   },
   "keywords": [
     "angular",
     "directive",
     "javascript",
-    "node.js",
-    "seed"
+    "JSON",
+    "human"
   ],
   "dependencies": {
   },
