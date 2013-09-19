@@ -2,22 +2,58 @@
 <!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html ng-app="ngApp"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html ng-app="app"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Directive Demo Page</title>
+  <title>Angular JSON Human Demo Page</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
 
-  <link href="component.css" rel="stylesheet" />
+  <link href="pure.css" rel="stylesheet" />
+  <link href="angular-json-human.css" rel="stylesheet" />
 </head>
-<body ng-controller="demoController">
-  <blink>{{ text1 }}</blink>
-  <blink>{{ text2 }}</blink>
+<body ng-controller="MainCtrl">
+  <div class="pure-g-r">
+    <div class="pure-u-1-2">
+      <textarea ng-model="jsonStr" rows="15"></textarea>
+    </div>
+    <div class="pure-u-1-2">
+      <div json-human="jsonStr"></div>
+    </div>
+  </div>
 
+  <script src="lodash.js"></script>
   <script src="angular.js"></script>
-  <script src="component.js"></script>
-  <script src="main.js"></script>
+  <script src="angular-json-human.js"></script>
+  <script>
+    var app = angular.module('app', [
+      'yaru22.directives.jsonHuman'
+    ]);
+    app.controller('MainCtrl', function($scope) {
+      $scope.jsonStr = JSON.stringify({
+        "author": {
+          "name": "Brian Park",
+          "email": "yaru22@gmail.com"
+        },
+        "name": "angular-json-human",
+        "description": "Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.",
+        "version": "0.1.0",
+        "license": "MIT",
+        "homepage": "https://github.com/yaru22/angular-json-human",
+        "repository": {
+          "type": "git",
+          "url": "git://github.com/yaru22/angular-json-human.git"
+        },
+        "dependencies": {
+          "angular": "PatternConsulting/bower-angular#1.1.5",
+          "lodash": "~2.0.0"
+        },
+        "devDependencies": {
+          "chai": "~1.8.0"
+        }
+      });
+    });
+  </script>
 </body>
 </html>
