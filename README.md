@@ -1,69 +1,57 @@
-Angular Component Seed
-======================
-This repo contains all you need to kickstart implementing your own Angular component (directive, filter, service, etc.). Just clone this repo, implement your component and share with other AngularJS enthusiasts!
+angular-json-human
+==================
+Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.
 
+Demo
+----
+TODO
 
-How to See Sample in Action
----------------------------
+Dependency
+----------
+This directive requires `lodash`. I'm going to remove the dependency in the future release.
+
+How to Use
+----------
+Include `angular-json-human.(js|css|tmpl)` in your project. You might want to modify `templateUrl` field in `angular-json-human.js` to point to `angular-json-human-root.tmpl` and `angular-json-human.tmpl` correctly.
+
+Load the directive after loading `angular.js`
+
 ```
-$ git clone https://github.com/yaru22/ng-component-seed.git
-$ cd ng-component-seed
-$ npm install
-$ bower install
-$ grunt
-```
-
-
-How to Use Seed Properly
-------------------------
-
-(DISCLAIMER: referenced https://github.com/pilwon/ultimate-seed#method-3-git-branch-tracking-remote)
-
-Create a new repo.
-```
-$ mkdir sample
-$ cd sample
-$ touch README.md
-$ git init .
-$ git add README.md
-$ git commit -m "First commit."
+<script src="<path to angular.js>"></script>
+<script src="<path to angular-json-human.js>"></script>
 ```
 
-Create `seed` branch that tracks remote branch `ng-component-seed/master`:
+Specify angular-json-human as a dependency of your Angular module.
+
 ```
-$ git remote add seed https://github.com/yaru22/ng-component-seed.git
-$ git fetch seed
-$ git checkout -b seed seed/master
+var app = angular.module('ngApp', [
+  'yaru22.directives.jsonHuman'
+]);
 ```
 
-Merge `seed` to master branch.
+Use it in your project.
+
 ```
-$ git checkout master
-$ git merge seed
+<html ng-app="ngApp">
+...
+<body ng-controller="MainCtrl">
+  <div json-human="jsonStr"></div>
+  ...
+</body>
+</html>
 ```
 
-Initialize the seed.
-```
-$ npm install
-$ bower install
-```
-
-Do the necessary work
-- create your component
-- change bower.json and package.json
-- change README.md and LICENSE
-- etc.
-
-Sync your `seed` branch to `ng-component-seed/master` time to time and merge it to `master` branch to get updates from `ng-component-seed`.
-```
-$ git checkout seed
-$ git pull
-$ git checkout master
-$ git merge seed
-<resolve conflicts and updating done>
-```
+or check out my [Plunker](http://plnkr.co/edit/0wEPmUsw5kKbBo9RjXW4?p=preview) for the minimal setup.
 
 
-License
--------
-This seed is released under permissive MIT License.
+How to Contribute
+-----------------
+```
+$ git clone https://github.com/yaru22/angular-json-human.git
+$ cd angular-json-human
+$ npm install; bower install
+$ # modify the source code in src/
+$ grunt clean; grunt build
+$ # test your changes; you can modify demo/ and serve it locally to see the changes.
+$ # submit a pull request
+```
