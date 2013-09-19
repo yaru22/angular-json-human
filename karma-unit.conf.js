@@ -48,7 +48,8 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       // strip this from the file path
-      stripPrefix: 'src/'
+      stripPrefix: 'src/',
+      moduleName: 'tmpl'
     },
 
 
