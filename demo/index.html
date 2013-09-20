@@ -16,6 +16,10 @@
       padding: 1em;
     }
 
+    .prettify-button {
+      margin: 0.5em 0;
+    }
+
     .json-editor {
       width: 100%;
     }
@@ -26,11 +30,14 @@
   <div class="pure-g-r">
     <div class="pure-u-1-2">
       <div class="l-box">
+        <div class="pure-button pure-button-primary prettify-button" ng-click="prettify()">Prettify JSON</div>
         <textarea class="json-editor" ng-model="jsonStr" rows="15"></textarea>
       </div>
     </div>
     <div class="pure-u-1-2">
-      <div json-human="jsonStr"></div>
+      <div class="l-box">
+        <div json-human="jsonStr"></div>
+      </div>
     </div>
   </div>
 
@@ -41,7 +48,7 @@
     var app = angular.module('app', [
       'yaru22.directives.jsonHuman'
     ]);
-    app.controller('MainCtrl', function($scope) {
+    app.controller('MainCtrl', function ($scope) {
       $scope.jsonStr = JSON.stringify({
         "author": {
           "name": "Brian Park",
@@ -64,6 +71,14 @@
           "chai": "~1.8.0"
         }
       }, undefined, 2);
+
+      $scope.prettify = function () {
+        try {
+          $scope.jsonStr = JSON.stringify(JSON.parse($scope.jsonStr), undefined, 2);
+        } catch (e) {
+          alert(e);
+        }
+      };
     });
   </script>
 </body>
