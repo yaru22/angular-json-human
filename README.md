@@ -4,7 +4,7 @@ Angular directive to convert JSON into human readable table. Inspired by https:/
 
 Demo
 ----
-TODO
+Check out the demo [here](http://www.brianpark.ca/projects/angular-json-human/).
 
 Dependency
 ----------
@@ -55,3 +55,7 @@ $ grunt clean; grunt build
 $ # test your changes; you can modify demo/ and serve it locally to see the changes.
 $ # submit a pull request
 ```
+
+TODO
+----
+- Remove the dependency on Lodash.
