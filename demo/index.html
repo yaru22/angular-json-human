@@ -11,12 +11,23 @@
   <meta name="viewport" content="width=device-width">
 
   <link href="pure.css" rel="stylesheet" />
+  <style>
+    .l-box {
+      padding: 1em;
+    }
+
+    .json-editor {
+      width: 100%;
+    }
+  </style>
   <link href="angular-json-human.css" rel="stylesheet" />
 </head>
 <body ng-controller="MainCtrl">
   <div class="pure-g-r">
     <div class="pure-u-1-2">
-      <textarea ng-model="jsonStr" rows="15"></textarea>
+      <div class="l-box">
+        <textarea class="json-editor" ng-model="jsonStr" rows="15"></textarea>
+      </div>
     </div>
     <div class="pure-u-1-2">
       <div json-human="jsonStr"></div>
