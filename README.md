@@ -4,7 +4,7 @@ Angular directive to convert JSON into human readable table. Inspired by https:/
 
 Demo
 ----
-Check out the demo [here](http://www.brianpark.ca/projects/angular-json-human/).
+Check out the demo [here](http://www.brianpark.ca/projects/angular_json_human/demo/).
 
 Dependency
 ----------
