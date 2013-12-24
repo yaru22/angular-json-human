@@ -12,7 +12,8 @@ This directive requires `lodash`. I'm going to remove the dependency in the futu
 
 How to Use
 ----------
-Include `angular-json-human.(js|css|tmpl)` in your project. You might want to modify `templateUrl` field in `angular-json-human.js` to point to `angular-json-human-root.tmpl` and `angular-json-human.tmpl` correctly.
+Include `angular-json-human.(js|css|tmpl)` in your project (you can do so via `bower install angular-json-human`).
+You might want to modify `templateUrl` field in `angular-json-human.js` to point to `angular-json-human-root.tmpl` and `angular-json-human.tmpl` correctly.
 
 Load the directive after loading `angular.js`
 
