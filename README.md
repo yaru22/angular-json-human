@@ -1,4 +1,4 @@
-angular-json-human
+angular-json-human [![Analytics](https://ga-beacon.appspot.com/UA-2694988-7/angular-json-human/readme?pixel)](https://github.com/yaru22/angular-json-human)
 ==================
 Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.
 
