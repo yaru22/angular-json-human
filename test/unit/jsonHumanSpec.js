@@ -9,9 +9,6 @@ describe('hovercard', function() {
   // load the code
   beforeEach(module('yaru22.directives.jsonHuman'));
 
-  // load the templates
-  beforeEach(module('tmpl'));
-
   beforeEach(inject(function($rootScope, $compile) {
     // we might move this tpl into an html file as well...
     elm = angular.element();

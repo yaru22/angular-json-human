@@ -3,6 +3,7 @@
 'use strict';
 
 angular.module('yaru22.directives.jsonHuman', [
+  'yaru22.directives.jsonHuman.tmpls'
 ]).factory('RecursionHelper', ['$compile', function ($compile) {
   var RecursionHelper = {
     compile: function (element) {
@@ -30,7 +31,7 @@ angular.module('yaru22.directives.jsonHuman', [
 }]).directive('jsonHuman', function () {
   return {
     restrict: 'A',
-    templateUrl: 'angular-json-human-root.tmpl',
+    templateUrl: 'template/angular-json-human-root.tmpl',
     link: function (scope, elem, attrs) {
       var json = null;
       scope.$watch(attrs.jsonHuman, function() {
@@ -50,7 +51,7 @@ angular.module('yaru22.directives.jsonHuman', [
     scope: {
       json: '=jsonHumanHelper'
     },
-    templateUrl: 'angular-json-human.tmpl',
+    templateUrl: 'template/angular-json-human.tmpl',
     compile: function(tElem) {
       return RecursionHelper.compile(tElem);
     }

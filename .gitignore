@@ -7,6 +7,6 @@
 *.sublime-*
 *.log
 bower_components
-dist
 log
 node_modules
+template/cache.js

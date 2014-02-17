@@ -12,7 +12,9 @@ module.exports = function(grunt) {
 
     dirs: {
       demo: 'demo',
-      dest: 'dist'
+      dist: 'dist',
+      src: 'src',
+      tmpl: 'template'
     },
 
     meta: {
@@ -29,15 +31,19 @@ module.exports = function(grunt) {
     // Configuring grunt helpers
     //
 
-    clean: ['<%= dirs.dest %>'],
+    clean: ['<%= dirs.dist %>'],
 
     concat: {  // grunt-contrib-concat
       options: {
         banner: '<%= meta.banner %>'
       },
-      dist: {
-        src: ['src/*.js'],
-        dest: '<%= dirs.dest %>/<%= pkg.name %>.js'
+      js: {
+        src: ['<%= dirs.src %>/*.js', '<%= dirs.tmpl %>/cache.js'],
+        dest: '<%= dirs.dist %>/<%= pkg.name %>.js'
+      },
+      css: {
+        src: ['<%= dirs.src %>/*.css'],
+        dest: '<%= dirs.dist %>/<%= pkg.name %>.css'
       }
     },
 
@@ -57,32 +63,33 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           flatten: true,
-          src: ['src/*'],
+          src: [
+            '<%= dirs.dist %>/<%= pkg.name %>.js',
+            '<%= dirs.dist %>/<%= pkg.name %>.css'
+          ],
           dest: '<%= dirs.demo %>/',
-          filter: 'isFile'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          flatten: true,
-          src: ['src/*.tmpl'],
-          dest: '<%= dirs.dest %>/',
           filter: 'isFile'
         }]
       }
     },
 
     cssmin: {  // grunt-contrib-cssmin
+      options: {
+        banner: '<%= meta.banner %>'
+      },
       combine: {
         files: {
-          '<%= dirs.dest %>/<%= pkg.name %>.min.css': ['src/*.css']
+          '<%= dirs.dist %>/<%= pkg.name %>.min.css': ['<%= dirs.dist %>/<%= pkg.name %>.css']
         }
       }
     },
 
     jshint: {  // grunt-contrib-jshint
-      all: ['Gruntfile.js', 'src/**/*.js', 'test/unit/**/*.js'],
+      all: [
+        'Gruntfile.js',
+        '<%= dirs.src %>/*.js',
+        'test/unit/**/*.js'
+      ],
       options: {
         jshintrc: '.jshintrc'
       }
@@ -99,10 +106,31 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= dirs.dest %>',
+          cwd: '<%= dirs.dist %>',
           src: '*.js',
-          dest: '<%= dirs.dest %>'
+          dest: '<%= dirs.dist %>'
         }]
+      }
+    },
+
+    ngtemplates: {  // grunt-angular-templates
+      all: {
+        src: '<%= dirs.tmpl %>/**.tmpl',
+        dest: '<%= dirs.tmpl %>/cache.js',
+        options: {
+          htmlmin: {
+            collapseBooleanAttributes: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true,
+            removeComments: true,
+            removeEmptyAttributes: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true
+          },
+          module: 'yaru22.directives.jsonHuman.tmpls',
+          standalone: true
+        }
       }
     },
 
@@ -117,14 +145,18 @@ module.exports = function(grunt) {
         banner: '<%= meta.banner %>'
       },
       dist: {
-        src: ['<%= dirs.dest %>/<%= pkg.name %>.js'],
-        dest: '<%= dirs.dest %>/<%= pkg.name %>.min.js'
+        src: ['<%= dirs.dist %>/<%= pkg.name %>.js'],
+        dest: '<%= dirs.dist %>/<%= pkg.name %>.min.js'
       }
     },
 
     watch: {  // grunt-contrib-watch
       src: {
-        files: ['src/*.js', 'src/*.css'],
+        files: [
+          '<%= dirs.src %>/*.js',
+          '<%= dirs.src %>/*.css',
+          '<%= dirs.tmpl %>/*.tmpl'
+        ],
         tasks: ['test'],
       }
     }
@@ -145,6 +177,7 @@ module.exports = function(grunt) {
   // Test task.
   grunt.registerTask('test', [
     'jshint:all',
+    'ngtemplates',
     'karma:single'
   ]);
 
