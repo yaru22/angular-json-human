@@ -17,6 +17,7 @@
 
   "ignore": [
     "demo",
+    "src",
     "test"
   ],
   "dependencies": {
