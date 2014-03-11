@@ -29,8 +29,7 @@ module.exports = function(config) {
       'src/**/*.js',
       'template/cache.js',
 
-      'test/unit/**/*.js',
-      'test/unit/**/*.tmpl'
+      'test/unit/**/*.js'
     ],
 
 
@@ -38,21 +37,6 @@ module.exports = function(config) {
     exclude: [
 
     ],
-
-
-    // generate js files from html templates
-    preprocessors: {
-      'src/*.tmpl': ['ng-html2js']
-    },
-
-
-    ngHtml2JsPreprocessor: {
-      cacheIdFromPath: function (filepath) {
-        return filepath.replace(/^test\/unit\//, '');
-      },
-
-      moduleName: 'tmpl'
-    },
 
 
     // test results reporter to use
