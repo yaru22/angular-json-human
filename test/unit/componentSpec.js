@@ -3,13 +3,13 @@
 
 var expect = chai.expect;
 
-describe('blink', function() {
+describe('blink', function () {
   var elm, scope;
 
   // load the code
   beforeEach(module('namespace.component-name'));
 
-  beforeEach(inject(function($rootScope, $compile) {
+  beforeEach(inject(function ($rootScope, $compile) {
     // we might move this tpl into an html file as well...
     elm = angular.element('<blink>Hello world</blink>');
 
@@ -19,7 +19,7 @@ describe('blink', function() {
   }));
 
 
-  it('should create a marquee element', inject(function() {
+  it('should create a marquee element', inject(function () {
     var marquee = elm.find('marquee');
 
     expect(marquee).to.have.length(1);
