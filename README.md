@@ -25,7 +25,7 @@ Specify angular-json-human as a dependency of your Angular module.
 
 ```
 var app = angular.module('ngApp', [
-  'yaru22.directives.jsonHuman'
+  'yaru22.jsonHuman'
 ]);
 ```
 

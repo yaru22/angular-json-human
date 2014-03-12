@@ -2,8 +2,8 @@
 
 'use strict';
 
-angular.module('yaru22.directives.jsonHuman', [
-  'yaru22.directives.jsonHuman.tmpls'
+angular.module('yaru22.jsonHuman', [
+  'yaru22.jsonHuman.tmpls'
 ]).factory('RecursionHelper', ['$compile', function ($compile) {
   var RecursionHelper = {
     compile: function (element) {

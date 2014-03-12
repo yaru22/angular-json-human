@@ -2,7 +2,7 @@
 
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -11,9 +11,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     dirs: {
-      demo: 'demo',
-      dist: 'dist',
       src: 'src',
+      dist: 'dist',
+      demo: 'demo',
       tmpl: 'template'
     },
 
@@ -74,9 +74,6 @@ module.exports = function(grunt) {
     },
 
     cssmin: {  // grunt-contrib-cssmin
-      options: {
-        banner: '<%= meta.banner %>'
-      },
       combine: {
         files: {
           '<%= dirs.dist %>/<%= pkg.name %>.min.css': ['<%= dirs.dist %>/<%= pkg.name %>.css']
@@ -87,7 +84,7 @@ module.exports = function(grunt) {
     jshint: {  // grunt-contrib-jshint
       all: [
         'Gruntfile.js',
-        '<%= dirs.src %>/*.js',
+        '<%= dirs.src %>/**/*.js',
         'test/unit/**/*.js'
       ],
       options: {
@@ -128,7 +125,7 @@ module.exports = function(grunt) {
             removeScriptTypeAttributes: true,
             removeStyleLinkTypeAttributes: true
           },
-          module: 'yaru22.directives.jsonHuman.tmpls',
+          module: 'yaru22.jsonHuman.tmpls',
           standalone: true
         }
       }
@@ -137,6 +134,13 @@ module.exports = function(grunt) {
     open: {  // grunt-open
       demo: {
         path: 'http://localhost:9999/'
+      }
+    },
+
+    release: {  // grunt-release
+      options: {
+        file: 'bower.json',
+        npm: false
       }
     },
 

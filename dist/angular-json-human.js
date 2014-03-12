@@ -1,5 +1,5 @@
 'use strict';
-angular.module('yaru22.directives.jsonHuman', ['yaru22.directives.jsonHuman.tmpls']).factory('RecursionHelper', [
+angular.module('yaru22.jsonHuman', ['yaru22.jsonHuman.tmpls']).factory('RecursionHelper', [
   '$compile',
   function ($compile) {
     var RecursionHelper = {
@@ -53,7 +53,7 @@ angular.module('yaru22.directives.jsonHuman', ['yaru22.directives.jsonHuman.tmpl
     }
   };
 });
-angular.module('yaru22.directives.jsonHuman.tmpls', []).run([
+angular.module('yaru22.jsonHuman.tmpls', []).run([
   '$templateCache',
   function ($templateCache) {
     'use strict';

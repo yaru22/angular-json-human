@@ -6,27 +6,35 @@
 
   "name": "angular-json-human",
   "description": "Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "license": "MIT",
   "homepage": "https://github.com/yaru22/angular-json-human",
-
   "repository": {
     "type": "git",
     "url": "git://github.com/yaru22/angular-json-human.git"
   },
-
   "ignore": [
-    "demo",
-    "src",
-    "test"
+    ".editorconfig",
+    ".gitattributes",
+    ".gitignore",
+    ".gittrack",
+    ".jshintrc",
+    "demo/",
+    "Gruntfile.js",
+    "karma-unit.conf.js",
+    "package.json",
+    "src/",
+    "template/",
+    "test/"
   ],
+
   "dependencies": {
-    "angular": "~1.2.6",
-    "angular-mocks": "~1.2.6",
-    "lodash": "~2.0.0"
+    "angular": "1.2.10",
+    "angular-mocks": "1.2.10",
+    "lodash": "2.4.1"
   },
   "devDependencies": {
-    "chai": "~1.8.1",
-    "jquery": "~2.0.3"
+    "chai": "1.9.0",
+    "jquery": "2.1.0"
   }
 }
