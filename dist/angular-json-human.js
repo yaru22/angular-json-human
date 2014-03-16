@@ -29,18 +29,20 @@ angular.module('yaru22.jsonHuman', ['yaru22.jsonHuman.tmpls']).factory('Recursio
 ]).directive('jsonHuman', function () {
   return {
     restrict: 'A',
+    scope: { data: '=jsonHuman' },
     templateUrl: 'template/angular-json-human-root.tmpl',
-    link: function (scope, elem, attrs) {
-      var json = null;
-      scope.$watch(attrs.jsonHuman, function () {
-        try {
-          json = JSON.parse(scope.$eval(attrs.jsonHuman));
-        } catch (e) {
+    link: function (scope) {
+      scope.$watch('data', function (json) {
+        if (typeof json === 'string') {
+          try {
+            json = JSON.parse(json);
+          } catch (e) {
+          }
         }
         scope.json = json;
+        scope.isObject = _.isPlainObject(json);
+        scope.isArray = _.isArray(json);
       });
-      scope.isObject = _.isPlainObject(json);
-      scope.isArray = _.isArray(json);
     }
   };
 }).directive('jsonHumanHelper', function (RecursionHelper) {

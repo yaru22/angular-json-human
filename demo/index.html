@@ -36,7 +36,24 @@
     </div>
     <div class="pure-u-1-2">
       <div class="l-box">
+        <h2>Using JSON String</h2>
+        <code>&lt;div json-human="jsonStr"&gt;&lt;/div&gt;</code>
         <div json-human="jsonStr"></div>
+      </div>
+    </div>
+
+    <div class="pure-u-1">
+      <hr>
+    </div>
+
+    <div class="pure-u-1-2">
+      {{ jsonObj }}
+    </div>
+    <div class="pure-u-1-2">
+      <div class="l-box">
+        <h2>Using Javascript Object</h2>
+        <code>&lt;div json-human="jsonObj"&gt;&lt;/div&gt;</code>
+        <div json-human="jsonObj"></div>
       </div>
     </div>
   </div>
@@ -49,7 +66,7 @@
       'yaru22.jsonHuman'
     ]);
     app.controller('MainCtrl', function ($scope) {
-      $scope.jsonStr = JSON.stringify({
+      $scope.jsonObj = {
         "author": {
           "name": "Brian Park",
           "email": "yaru22@gmail.com"
@@ -88,16 +105,17 @@
           "chai": "1.9.0",
           "jquery": "2.1.0"
         }
-      }, undefined, 2);
+      };
+      $scope.jsonStr = JSON.stringify($scope.jsonObj, undefined, 2);
 
-    $scope.prettify = function () {
-      try {
-        $scope.jsonStr = JSON.stringify(JSON.parse($scope.jsonStr), undefined, 2);
-      } catch (e) {
-        alert(e);
-      }
-    };
-  });
-</script>
+      $scope.prettify = function () {
+        try {
+          $scope.jsonStr = JSON.stringify(JSON.parse($scope.jsonStr), undefined, 2);
+        } catch (e) {
+          alert(e);
+        }
+      };
+    });
+  </script>
 </body>
 </html>
