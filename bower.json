@@ -13,8 +13,9 @@
     "type": "git",
     "url": "git://github.com/yaru22/angular-json-human.git"
   },
-  "main" : [
-      "dist/angular-json-human.js"
+  "main": [
+      "dist/angular-json-human.js",
+      "dist/angular-json-human.css"
   ],
   "ignore": [
     ".editorconfig",
