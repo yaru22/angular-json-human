@@ -49,7 +49,7 @@ angular.module('yaru22.jsonHuman', [
       });
     }
   };
-}).directive('jsonHumanHelper', function (RecursionHelper) {
+}).directive('jsonHumanHelper', ['RecursionHelper', function (RecursionHelper) {
   return {
     restrict: 'A',
     scope: {
@@ -60,4 +60,4 @@ angular.module('yaru22.jsonHuman', [
       return RecursionHelper.compile(tElem);
     }
   };
-});
+}]);
