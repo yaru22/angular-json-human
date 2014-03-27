@@ -45,16 +45,19 @@ angular.module('yaru22.jsonHuman', ['yaru22.jsonHuman.tmpls']).factory('Recursio
       });
     }
   };
-}).directive('jsonHumanHelper', function (RecursionHelper) {
-  return {
-    restrict: 'A',
-    scope: { json: '=jsonHumanHelper' },
-    templateUrl: 'template/angular-json-human.tmpl',
-    compile: function (tElem) {
-      return RecursionHelper.compile(tElem);
-    }
-  };
-});
+}).directive('jsonHumanHelper', [
+  'RecursionHelper',
+  function (RecursionHelper) {
+    return {
+      restrict: 'A',
+      scope: { json: '=jsonHumanHelper' },
+      templateUrl: 'template/angular-json-human.tmpl',
+      compile: function (tElem) {
+        return RecursionHelper.compile(tElem);
+      }
+    };
+  }
+]);
 angular.module('yaru22.jsonHuman.tmpls', []).run([
   '$templateCache',
   function ($templateCache) {
