@@ -4,7 +4,7 @@
 
 angular.module('yaru22.jsonHuman', [
   'yaru22.jsonHuman.tmpls'
-]).factory('RecursionHelper', ['$compile', function ($compile) {
+]).factory('RecursionHelper', function ($compile) {
   var RecursionHelper = {
     compile: function (element) {
       var contents = element.contents().remove();
@@ -28,7 +28,7 @@ angular.module('yaru22.jsonHuman', [
     }
   };
   return RecursionHelper;
-}]).directive('jsonHuman', function () {
+}).directive('jsonHuman', function () {
   return {
     restrict: 'A',
     scope: {
