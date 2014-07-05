@@ -6,7 +6,7 @@
 <span ng-if="isEmpty && isObject" class="jh-empty">(Empty Object)</span>
 <table ng-if="!isEmpty && !isPrimitive" ng-class="{ 'jh-type-array': isArray, 'jh-type-object': isObject }">
 <tbody>
-  <tr ng-repeat="(key, val) in json">
+  <tr ng-repeat="(key, val) in json track by $index">
     <th class="jh-key" ng-class="{ 'jh-array-key': isArray, 'jh-object-key': isObject }">
       {{ key }}
     </th>
