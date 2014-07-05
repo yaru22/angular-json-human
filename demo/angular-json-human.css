@@ -1,6 +1,6 @@
 /**
  * Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.
- * @version v1.1.2 - 2014-07-05
+ * @version v1.2.0 - 2014-07-05
  * @link https://github.com/yaru22/angular-json-human
  * @author Brian Park <yaru22@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
