@@ -12,11 +12,9 @@ This directive requires `lodash`. I'm going to remove the dependency in the futu
 
 How to Use
 ----------
-Install it via `bower` or `npm`:
+Install it via `bower`:
 ```
 $ bower install angular-json-human
-or
-$ npm install angular-json-human
 ```
 
 Include `angular-json-human.(js|css)` in your project. Load the directive after loading `angular.js`

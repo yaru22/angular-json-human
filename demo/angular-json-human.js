@@ -1,3 +1,11 @@
+/**
+ * Angular directive to convert JSON into human readable table. Inspired by https://github.com/marianoguerra/json.human.js.
+ * @version v1.2.1 - 2014-12-22
+ * @link https://github.com/yaru22/angular-json-human
+ * @author Brian Park <yaru22@gmail.com>
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+/* global _, angular */
 'use strict';
 angular.module('yaru22.jsonHuman', ['yaru22.jsonHuman.tmpls']).factory('RecursionHelper', [
   '$compile',
