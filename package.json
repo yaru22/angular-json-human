@@ -49,6 +49,8 @@
     "karma-mocha": "~0.1",
     "matchdep": "~0.3.0"
   },
+  
+  "main": "dist/angular-json-human.js",
 
   "scripts": {
     "test": "grunt test"
