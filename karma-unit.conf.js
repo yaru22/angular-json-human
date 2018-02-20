@@ -19,12 +19,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/chai/chai.js',
+      'node_modules/chai/chai.js',
       // needed for elem.find() lookup by other than tag name
       'bower_components/jquery/jquery.js',
 
-      'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-mocks/angular-mocks.js',
 
       'src/**/*.js',
       'template/cache.js',
